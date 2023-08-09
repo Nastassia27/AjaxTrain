@@ -2,8 +2,15 @@
 const resultBlock = document.querySelector('#result');
 const pageNumber = document.querySelector('#page-number');
 const clickMeButton = document.querySelector('#click-me');
+const getTasksButton = document.querySelector('#get-tasks');
 clickMeButton.addEventListener('click', ()=>{
-    getImages(onDataReceived);
+   const promise =  getImages();
+   promise.then(onDataReceived)
+});
+
+getTasksButton.addEventListener('click', ()=>{
+    const promise =  getTasks();
+    promise.then(onDataReceived)
 });
 
 function onDataReceived(data){
@@ -14,6 +21,17 @@ function onDataReceived(data){
         }
     )
 }
+
+/*createPostTasks('learnJS').then((data)=>{console.log(data)})*/
+
+/*function onTasksReceived(tasks){
+    tasks.forEach(el=>{
+            const li = document.createElement('li')
+        li.innerHTML=el
+            document.querySelector('#tasks-result').appendChild(li);
+        }
+    )
+}*/
 
 
 
