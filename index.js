@@ -27,7 +27,7 @@ createPostTasks('learnJS').then((data)=>{console.log(data)})
 function onTasksReceived(tasks){
     tasks.forEach(el=>{
             const li = document.createElement('li')
-        li.innerHTML=el
+        li.innerHTML=el.title
             document.querySelector('#tasks-result').appendChild(li);
         }
     )

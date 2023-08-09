@@ -27,9 +27,17 @@ function getTasks(){
     })
 }
 
+//get запрос забирает данные с сервака
+
 function createPostTasks(title){
-    const promise =  axios.post(`https://repetitora.net/api/JS/Tasks?widgetId=4345&title=${title}`)
+    const promise =  axios.post(`https://repetitora.net/api/JS/Tasks`,{
+        title:'learnJS',
+        widgetId: 54783
+    })
     return promise.then((response)=> {
         return response.data
     })
 }
+//post запрос предназначен чтобы на сервак отправить много данных
+//get post различаются тем что в пост мы можем пережать много параметров в request payload нагрузка
+//get запрос характеризуется только юрл строкой - адресом, если что-то хотим передать засовываем в сам линк
