@@ -22,16 +22,16 @@ function onDataReceived(data){
     )
 }
 
-/*createPostTasks('learnJS').then((data)=>{console.log(data)})*/
+createPostTasks('learnJS').then((data)=>{console.log(data)})
 
-/*function onTasksReceived(tasks){
+function onTasksReceived(tasks){
     tasks.forEach(el=>{
             const li = document.createElement('li')
         li.innerHTML=el
             document.querySelector('#tasks-result').appendChild(li);
         }
     )
-}*/
+}
 
 
 
