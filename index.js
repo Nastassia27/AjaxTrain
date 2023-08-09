@@ -1,16 +1,23 @@
+//get-paramnetr ?page=2&city=Mosciw - query string
+const resultBlock = document.querySelector('#result');
+const pageNumber = document.querySelector('#page-number');
+const clickMeButton = document.querySelector('#click-me');
+clickMeButton.addEventListener('click', makeRequest);
 
-var a = 5
-console.log(0)
-$.ajax('https://rapidapi.com/martin.svoboda/api/quotes15/details', {
-    success: function(date){
-        console.log(data)
-      /* data.forEach(el=>{
-          const img =  document.createElement('img')
-           img.src=el.thumbnail;
-          document.querySelector('body').appendChild(img);*/
-       }
-    });
-console.log(1)
+function makeRequest(){
+    $.ajax('https://api.slingacademy.com/v1/sample-data/photos?offset=5&limit=10', {
+        success: function(date){
+            // console.log(data)
+            data.forEach(el=>{
+                    const img =  document.createElement('img')
+                    img.src=el.photos;
+                    document.querySelector('#result').appendChild(img);
+                }
+            )
+        }});
+}
+
+
 
 /*a = 8;
 console.log(a);*/
@@ -20,12 +27,5 @@ console.log(a);*/
 
 
 
-/*
-const resultBlock = document.querySelector('#result');
-const clickMeButton = document.querySelector('#click-me');
-clickMeButton.addEventListener('click', makeRequest);
 
-function makeRequest(){
-    resultBlock.innerHTML='result'
-}*/
 
