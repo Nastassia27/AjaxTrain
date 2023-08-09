@@ -2,19 +2,17 @@
 const resultBlock = document.querySelector('#result');
 const pageNumber = document.querySelector('#page-number');
 const clickMeButton = document.querySelector('#click-me');
-clickMeButton.addEventListener('click', makeRequest);
+clickMeButton.addEventListener('click', ()=>{
+    getImages(onDataReceived);
+});
 
-function makeRequest(){
-    $.ajax('https://api.slingacademy.com/v1/sample-data/photos?offset=5&limit=10', {
-        success: function(date){
-            // console.log(data)
-            data.forEach(el=>{
-                    const img =  document.createElement('img')
-                    img.src=el.photos;
-                    document.querySelector('#result').appendChild(img);
-                }
-            )
-        }});
+function onDataReceived(data){
+    data.forEach(el=>{
+            const img =  document.createElement('img')
+            img.src=el.photos;
+            document.querySelector('#result').appendChild(img);
+        }
+    )
 }
 
 
